@@ -3,6 +3,16 @@ import pibrella
 import picamera
 import time
 import datetime
+import pygame
+
+#Pygame setup
+pygame.init()
+
+w = 640
+h = 480
+
+size = (w,h)
+screen = pygame.display.set_mode(size)
 
 #declare variables
 
@@ -15,9 +25,14 @@ def takepic(pin):
         camera.rotation = 180
         camera.resolution = (640,480)
         camera.start_preview()
-        camera.capture((a)+".jpg")
+        img = camera.capture((a)+".jpg")
         camera.stop_preview()
         pibrella.light.red.off()
+	img = pygame.image.load("./2014-08-07 16:40:07.jpg")
+	screen.blit(img,(0,0))
+	pygame.display.flip()
+	time.sleep(3)
+	pygame.quit()
 
         
 #main body of code
