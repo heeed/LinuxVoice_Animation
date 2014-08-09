@@ -8,16 +8,16 @@ import pygame
 #Pygame setup
 pygame.init()
 
-w = 640
-h = 480
 
-size = (w,h)
-screen = pygame.display.set_mode(size)
 
 #declare variables
 
 #declare functions
 def takepic(pin):
+    w = 640
+    h = 480
+
+    size = (w,h)
     with picamera.PiCamera() as camera:
         pibrella.light.red.blink(0.1, 0.1)
         a = str(datetime.datetime.now())
@@ -28,11 +28,12 @@ def takepic(pin):
         img = camera.capture((a)+".jpg")
         camera.stop_preview()
         pibrella.light.red.off()
-	img = pygame.image.load("./2014-08-07 16:40:07.jpg")
-	screen.blit(img,(0,0))
-	pygame.display.flip()
-	time.sleep(3)
-	pygame.quit()
+    screen = pygame.display.set_mode(size)    
+    img = pygame.image.load((a)+".jpg")
+    screen.blit(img,(0,0))
+    pygame.display.flip()
+    time.sleep(3)
+    pygame.quit()
 
         
 #main body of code
