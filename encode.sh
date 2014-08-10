@@ -5,3 +5,8 @@ echo "Please ensure that you have installed mencoder"
 ls *.jpg > stills.txt
 
 mencoder -nosound -ovc lavc -lavcopts vcodec=mpeg4:aspect=4/3:vbitrate=8000000 -vf scale=640:480 -o timelapse.avi -mf type=jpeg:fps=6 mf://@stills.txt
+
+echo "Encoding complete and file saved as timelapse.avi"
+echo "Will now launch VLC and play your movie"
+sleep 2
+vlc timelapse.avi
