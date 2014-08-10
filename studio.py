@@ -28,12 +28,12 @@ def takepic(pin):
         img = camera.capture((a)+".jpg")
         camera.stop_preview()
         pibrella.light.red.off()
-    screen = pygame.display.set_mode(size)    
-    img = pygame.image.load((a)+".jpg")
-    screen.blit(img,(0,0))
-    pygame.display.flip()
-    time.sleep(3)
-    pygame.quit()
+        screen = pygame.display.set_mode(size)    
+        img = pygame.image.load((a)+".jpg")
+        screen.blit(img,(0,0))
+        pygame.display.flip()
+        time.sleep(3)
+        pygame.quit()
 
         
 #main body of code
